@@ -1,4 +1,4 @@
-package com.firstjsf.home;
+package com.firstjsf.bean;
 
 import javax.faces.bean.ManagedBean;
 

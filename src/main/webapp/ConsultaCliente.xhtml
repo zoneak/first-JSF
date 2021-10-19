@@ -4,12 +4,16 @@
 <h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
+	<h:outputStylesheet library="css" name="estilo.css" />
+	<h:outputScript library="js" name="tabela.js" />
 </h:head>
 <h:body>
 	<h:form id="frm">
 		<h:commandButton value="Consultar" action="#{consultaClienteBean.consultar}" />
 		
-		<h:dataTable value="#{consultaClienteBean.clientes}" var="item" border="1" rendered="#{not empty consultaClienteBean.clientes}">
+		<h:dataTable value="#{consultaClienteBean.clientes}" var="item" border="1" rendered="#{not empty consultaClienteBean.clientes}"
+			styleClass="tabela" headerClass="cabecalho"
+			rowClasses="linha-impar, linha-par">
 			<h:column>
 				<f:facet name="header">
 					Código
@@ -28,6 +32,13 @@
 				</f:facet>
 				<h:outputText value="#{item.cidade}" />
 			</h:column>
+			<h:column>
+				<f:facet name="header">
+					Ações
+				</f:facet>
+				<h:button value="Alerta" onclick="exibeAlerta('#{item.nome}')" />
+			</h:column>
+			
 		</h:dataTable>
 		
 		<h:commandButton value="Salvar" action="#{consultaClienteBean.salvar}" rendered="#{not empty consultaClienteBean.clientes}" />

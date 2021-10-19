@@ -14,7 +14,7 @@
 				<f:facet name="header">
 					Código
 				</f:facet>
-				<h:outputText value="#{item.codigo}" />
+				<h:inputText value="#{item.codigo}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">
@@ -29,6 +29,8 @@
 				<h:outputText value="#{item.cidade}" />
 			</h:column>
 		</h:dataTable>
+		
+		<h:commandButton value="Salvar" action="#{consultaClienteBean.salvar}" rendered="#{not empty consultaClienteBean.clientes}" />
 	</h:form>
 </h:body>
 </html>
